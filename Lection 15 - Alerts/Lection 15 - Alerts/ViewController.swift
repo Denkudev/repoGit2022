@@ -24,6 +24,14 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showActionSheet(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Donate", message: "Please donate a little bit!", preferredStyle: .actionSheet)
+        let donateFifty = UIAlertAction(title: "50 $", style: .default, handler: nil)
+        alert.addAction(donateFifty)
+        let donateHundred = UIAlertAction(title: "100 $", style: .default, handler: nil)
+        alert.addAction(donateHundred)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
     }
     
 }
