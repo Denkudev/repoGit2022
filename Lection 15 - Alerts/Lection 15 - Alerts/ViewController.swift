@@ -24,10 +24,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showActionSheet(_ sender: UIButton) {
+        enum DonateSum: String {
+            case donateFifty = "50 $"
+            case donateHundred = "100 $"
+        }
+        
         let alert = UIAlertController(title: "Donate", message: "Please donate a little bit!", preferredStyle: .actionSheet)
-        let donateFifty = UIAlertAction(title: "50 $", style: .default, handler: nil)
+        
+        let handler:(_ number: DonateSum) -> (UIAlertAction) -> Void = { number in
+            return { action in
+                print(number.rawValue)
+            }
+        }
+        
+        let donateFifty = UIAlertAction(title: DonateSum.donateFifty.rawValue, style: .default, handler: handler(.donateFifty))
         alert.addAction(donateFifty)
-        let donateHundred = UIAlertAction(title: "100 $", style: .default, handler: nil)
+        let donateHundred = UIAlertAction(title: DonateSum.donateHundred.rawValue, style: .default, handler: handler(.donateHundred))
         alert.addAction(donateHundred)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
