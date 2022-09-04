@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         enum DonateSum: String {
             case donateFifty = "50 $"
             case donateHundred = "100 $"
+            case donateFavorite = "555 $"
             case donatePrior = "777 $"
         }
         
@@ -43,6 +44,10 @@ class ViewController: UIViewController {
         
         let donateHundred = UIAlertAction(title: DonateSum.donateHundred.rawValue, style: .default, handler: handler(.donateHundred))
         alert.addAction(donateHundred)
+        
+        let donateFavorite = UIAlertAction(title: DonateSum.donateFavorite.rawValue, style: .destructive, handler: handler(.donateFavorite))
+        alert.addAction(donateFavorite)
+        
         
         let donatePrior = UIAlertAction(title: DonateSum.donatePrior.rawValue, style: .destructive, handler: handler(.donatePrior))
         alert.addAction(donatePrior)
