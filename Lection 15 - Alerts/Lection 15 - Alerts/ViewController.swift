@@ -28,6 +28,7 @@ class ViewController: UIViewController {
             case donateFifty = "50 $"
             case donateHundred = "100 $"
             case donateFavorite = "555 $"
+            case donatePrior = "777 $"
         }
         
         let alert = UIAlertController(title: "Donate", message: "Please donate a little bit!", preferredStyle: .actionSheet)
@@ -46,6 +47,10 @@ class ViewController: UIViewController {
         
         let donateFavorite = UIAlertAction(title: DonateSum.donateFavorite.rawValue, style: .destructive, handler: handler(.donateFavorite))
         alert.addAction(donateFavorite)
+        
+        
+        let donatePrior = UIAlertAction(title: DonateSum.donatePrior.rawValue, style: .destructive, handler: handler(.donatePrior))
+        alert.addAction(donatePrior)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(cancelAction)
